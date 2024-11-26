@@ -14,18 +14,18 @@
         <div class="card">
             <div class="card-body">
                 <h5>タスクのタイトル</h5>
-                <p class="card-text"></p>
+                <p class="card-text">{{ task['title'] }}</p>
 
                 <h5>タスクの内容</h5>
-                <p class="card-text"></p>
+                <p class="card-text">{{ task['content'] }}</p>
 
                 <h5>期限</h5>
-                <p class="card-text"></p>
+                <p class="card-text">{{ task['due_date'] }}</p>
 
                 <h5>ステータス</h5>
-                <p class="card-text"></p>
+                <p class="card-text">{{ task['status'] }}</p>
 
-                <a href="" class="btn btn-primary mt-3">戻る</a>
+                <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">戻る</a>
             </div>
         </div>
     </div>

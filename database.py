@@ -60,3 +60,24 @@ def show_task(id):
     task = c.execute("SELECT * FROM tasks WHERE id = ?", (id,)).fetchone()
     c.close()
     return task
+
+
+# タスクを編集する関数
+def edit_task(id, title, content, due_date, status):
+    conn = get_connection_db()
+    c = conn.cursor()
+    c.execute(
+        "UPDATE tasks SET title = ?, content = ?, due_date = ?, status =?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
+        (title, content, due_date, status, id),
+    )
+    conn.commit()
+    c.close
+
+
+# タスクを削除する関数
+def delete_task(id):
+    conn = get_connection_db()
+    c = conn.cursor()
+    c.execute("DELETE FROM tasks WHERE id = ?", (id,))
+    conn.commit()
+    c.close()
